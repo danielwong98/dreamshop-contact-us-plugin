@@ -1,0 +1,103 @@
+.tablenav .tablenav-pages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.tablenav .tablenav-pages .displaying-num {
+    margin-right: 10px;
+}
+
+.tablenav .tablenav-pages .pagination-links {
+    display: flex;
+    align-items: center;
+}
+
+.tablenav .tablenav-pages .pagination-links a,
+.tablenav .tablenav-pages .pagination-links span {
+    padding: 5px 10px;
+    margin: 0 2px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+}
+
+.tablenav .tablenav-pages .pagination-links a:hover {
+    background-color: #eee;
+}
+
+.tablenav .tablenav-pages .pagination-links .current {
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.contact-us-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+.contact-us-card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+.contact-us-card-header {
+    padding: 1rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, .03);
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.contact-us-card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+.contact-us-section {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: .75rem;
+}
+.contact-us-email-setting-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-width: 500px;
+}
+.email-setting-form-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.update-email-btn-wrapper {
+    margin-top: 20px;
+    margin-left: auto;
+}
+
+#email-setting-form .hint-text {
+    font-size: 13px;
+    color: #999;
+    font-style: italic;
+}
+
+.notice.notice-success {
+    background-color: #d4edda; /* Light green background */
+    border-left: 4px solid #28a745; /* Green left border */
+    color: #155724; /* Dark green text */
+    padding: 12px 16px; /* Padding inside the message box */
+    border-radius: 4px; /* Rounded corners */
+    margin-top: 20px; /* Spacing above the message */
+}
+
+/* Close button inside the success message */
+.notice.notice-success .notice-dismiss:before {
+    color: #155724; /* Dark green color for the close (X) icon */
+}
