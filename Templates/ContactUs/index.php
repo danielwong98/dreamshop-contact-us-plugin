@@ -10,6 +10,7 @@
    <th scope="col" class="manage-column column-subject">Subject</th>
    <th scope="col" class="manage-column column-message">Message</th>
    <th scope="col" class="manage-column column-create-at">Received At</th>
+   <th scope="col" class="manage-column column-actions">Status</th>
    <th scope="col" class="manage-column column-actions">Actions</th>
   </tr>
   </thead>
@@ -27,6 +28,7 @@
       <th scope="col" class="manage-column column-subject">Subject</th>
       <th scope="col" class="manage-column column-message">Message</th>
       <th scope="col" class="manage-column column-create-at">Received At</th>
+      <th scope="col" class="manage-column column-actions">Status</th>
       <th scope="col" class="manage-column column-actions">Actions</th>
   </tr>
   </tfoot>

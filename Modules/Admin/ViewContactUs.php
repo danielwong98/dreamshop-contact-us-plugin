@@ -9,6 +9,35 @@ class ViewContactUs
             // register ajax handler.
             add_action('wp_ajax_fetch_contact_us_inquiry', array($this, 'fetchContactUsInquiry'));
             add_action('wp_ajax_nopriv_fetch_contact_us_inquiry', array($this, 'fetchContactUsInquiry'));
+            add_action('wp_ajax_update_contact_us_status', array($this, 'updateContactUsStatus'));
+            add_action('wp_ajax_nopriv_update_contact_us_status', array($this, 'updateContactUsStatus'));
+        }
+    }
+
+    public function updateContactUsStatus()
+    {
+        global $wpdb;
+
+        if (isset($_POST['id']) && isset($_POST['status'])) {
+            $contact_us_id = intval($_POST['id']);
+            $status = sanitize_text_field($_POST['status']);
+
+            $table_name = $wpdb->prefix . 'dcr_contact_us';
+
+            // Update the status in the database.
+            $update = $wpdb->update(
+                $table_name,
+                array('status' => $status),
+                array('id' => $contact_us_id)
+            );
+
+            if ($update !== false) {
+                wp_send_json_success('Status updated successfully.');
+            } else {
+                wp_send_json_error('Failed to update status.');
+            }
+        } else {
+            wp_send_json_error('Invalid request.');
         }
     }
 

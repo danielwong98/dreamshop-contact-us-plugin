@@ -141,6 +141,7 @@ class AdminPlugin
                 order_reference varchar(50) DEFAULT NULL,
                 message text NOT NULL,
                 created_at datetime DEFAULT CURRENT_TIMESTAMP,
+                status varchar(20) DEFAULT 'pending',
                 PRIMARY KEY (id)
             ) $charset_collate;";
 

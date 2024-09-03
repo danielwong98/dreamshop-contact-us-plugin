@@ -1,4 +1,34 @@
 jQuery(document).ready(function($) {
+    $('#save-status-button').on('click', function() {
+        // Capture the selected status value
+        var status = $('select[name="status"]').val();
+        var contactUsId = $('#contact-us-id').val();
+
+        // AJAX POST request to update the status
+        $.ajax({
+            url: ajax_object.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'update_contact_us_status',
+                status: status,
+                id: contactUsId
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert('Status updated successfully.');
+                    window.history.back();
+                } else {
+                    alert('Failed to update status.');
+                    location.reload();
+                }
+            },
+            error: function(response) {
+                alert('Error updating status.');
+                location.reload();
+            }
+        });
+    });
+
     // look for merchant listing table.
     const isContactUsPage = $('#contact-us-listing-page').length > 0;
     if (isContactUsPage) {
@@ -40,6 +70,11 @@ jQuery(document).ready(function($) {
                     '<td class="column-subject">' + inquiry.subject + '</td>' +
                     '<td class="column-message">' + inquiry.message + '</td>' +
                     '<td class="column-created-at">' + inquiry.created_at_formatted + '</td>' +
+                    '<td class="column-status">' +
+                        '<div class= "' + (inquiry.status === 'pending' ? 'status-pending' : 'status-complete') + '">' +
+                            inquiry.status.charAt(0).toUpperCase() + inquiry.status.slice(1).toLowerCase() +
+                        '</div>' +
+                    '</td>' +
                     '<td class="column-actions">' +
                     '<a href="'+ inquiry.view_detail_url +'" class="button button-primary">View Details</a>' +
                     '</td>' +

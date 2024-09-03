@@ -21,6 +21,20 @@
                     <p><strong>Order Reference: </strong><?php echo $data->order_reference ?></p>
                     <p><strong>Message: </strong></p>
                     <textarea name="inquiry-message" rows="4" cols="100" readonly><?php echo htmlspecialchars($data->message); ?></textarea>
+                    <!-- Checkbox for Status -->
+                    <form method="post" action="">
+                        <p><strong>Status: </strong>
+                            <label>
+                                <select name="status">
+                                    <option value="pending" <?php if (isset($data->status) && $data->status === 'pending') echo 'selected'; ?>>Pending</option>
+                                    <option value="complete" <?php if (isset($data->status) && $data->status === 'complete') echo 'selected'; ?>>Complete</option>
+                                </select>
+                            </label>
+                            <input type="hidden" id="contact-us-id" value="<?php echo $data->id; ?>" /> <!-- Hidden input for ID -->
+                            <!-- Save Button -->
+                            <button type="button" id="save-status-button" class="button button-primary" style="float: right; margin-top: 20px;">Save</button>
+                        </p>
+                    </form>
                 </div>
             </div>
         </section>

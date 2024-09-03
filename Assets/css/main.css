@@ -101,3 +101,29 @@
 .notice.notice-success .notice-dismiss:before {
     color: #155724; /* Dark green color for the close (X) icon */
 }
+
+.status-pending {
+    background-color: #ffc107 !important;
+    display: inline-block;
+    padding: .25em;
+    line-height: 1;
+    color: #212529 !important;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    width:80px;
+}
+
+.status-complete {
+    background-color: #198754 !important;
+    display: inline-block;
+    padding: .25em;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    width: 80px;
+}
