@@ -71,7 +71,7 @@ jQuery(document).ready(function($) {
                     '<td class="column-message">' + inquiry.message + '</td>' +
                     '<td class="column-created-at">' + inquiry.created_at_formatted + '</td>' +
                     '<td class="column-status">' +
-                        '<div class= "' + (inquiry.status === 'pending' ? 'status-pending' : 'status-complete') + '">' +
+                        '<div class= "' + (inquiry.status === 'pending' ? 'status-contact-us-pending' : 'status-contact-us-complete') + '">' +
                             inquiry.status.charAt(0).toUpperCase() + inquiry.status.slice(1).toLowerCase() +
                         '</div>' +
                     '</td>' +
