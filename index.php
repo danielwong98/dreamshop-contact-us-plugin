@@ -12,13 +12,16 @@ if (!defined('ABSPATH')) {
 
 define('DS_CONTACT_US', plugin_dir_path(__FILE__));
 
+if ( ! class_exists( 'WP_List_Table' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
+}
+
 /**
  *  Include modules here
  **/
 include_once(DS_CONTACT_US . 'Modules/Admin/ContactUs.php');
 include_once(DS_CONTACT_US . 'Modules/Admin/ViewContactUs.php');
 include_once(DS_CONTACT_US . 'Modules/Admin/SettingContactUs.php');
-
 use Modules\Admin\ContactUs;
 use Modules\Admin\ViewContactUs;
 use Modules\Admin\SettingContactUs;

@@ -1,6 +1,9 @@
 <?php
 namespace Modules\Admin;
 
+include_once(DS_CONTACT_US . 'Templates/CustomTable/AdminCustomTable.php');
+
+use CustomTable\AdminCustomTable;
 use Exception;
 class ContactUs
 {
@@ -23,10 +26,15 @@ class ContactUs
     }
 
     public function renderPage() {
-        // get template
-        // render current module page.
-        echo '<h1>Contact Us</h1>';
-        echo $this->getPageHTML();
+        $table = new AdminCustomTable();
+        $table->prepare_items();
+
+        echo '<div class="wrap">';
+        echo '<h2>Contact Us</h2>';
+        echo '<form method="post">';
+        $table->display();
+        echo '</form>';
+        echo '</div>';
     }
 
     private function getPageHTML()
