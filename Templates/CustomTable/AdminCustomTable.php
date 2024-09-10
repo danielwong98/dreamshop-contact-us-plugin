@@ -247,35 +247,6 @@ class AdminCustomTable extends WP_List_Table
             echo '</div>';
 
             echo '</div>'; // End of tablenav
-
-            // JavaScript to toggle the end date and its label visibility
-            ?>
-            <script type="text/javascript">
-                document.addEventListener('DOMContentLoaded', function() {
-                    var startDateInput = document.getElementById('start_date');
-                    var endDateInput = document.getElementById('end_date');
-                    var endDateLabel = document.getElementById('end_date_label');
-
-                    // Function to toggle end date and its label visibility
-                    function toggleEndDate() {
-                        if (startDateInput.value) {
-                            endDateInput.style.display = 'inline-block'; // Show end date
-                            endDateLabel.style.display = 'inline-block'; // Show 'To' label
-                        } else {
-                            endDateInput.style.display = 'none'; // Hide end date
-                            endDateLabel.style.display = 'none'; // Hide 'To' label
-                            endDateInput.value = ''; // Clear end date if start date is cleared
-                        }
-                    }
-
-                    // Initial check on page load
-                    toggleEndDate();
-
-                    // Attach event listener to start date input
-                    startDateInput.addEventListener('input', toggleEndDate);
-                });
-            </script>
-            <?php
         }
     }
     private function appendFilter() {
