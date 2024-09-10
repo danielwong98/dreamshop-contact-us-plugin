@@ -27,7 +27,7 @@
                             <label>
                                 <select name="status">
                                     <option value="pending" <?php if (isset($data->status) && $data->status === 'pending') echo 'selected'; ?>>Pending</option>
-                                    <option value="complete" <?php if (isset($data->status) && $data->status === 'complete') echo 'selected'; ?>>Complete</option>
+                                    <option value="completed" <?php if (isset($data->status) && $data->status === 'completed') echo 'selected'; ?>>Completed</option>
                                 </select>
                             </label>
                             <input type="hidden" id="contact-us-id" value="<?php echo $data->id; ?>" /> <!-- Hidden input for ID -->

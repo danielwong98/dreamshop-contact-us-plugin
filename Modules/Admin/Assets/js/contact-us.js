@@ -29,6 +29,28 @@ jQuery(document).ready(function($) {
         });
     });
 
+    // New date toggle functionality
+    var startDateInput = $('#start_date')[0];
+    var endDateInput = $('#end_date')[0];
+    var endDateLabel = $('#end_date_label')[0];
+
+    function toggleEndDate() {
+        if (startDateInput.value) {
+            $(endDateInput).show();
+            $(endDateLabel).show();
+        } else {
+            $(endDateInput).hide();
+            $(endDateLabel).hide();
+            endDateInput.value = '';
+        }
+    }
+
+    // Initial check on page load
+    toggleEndDate();
+
+    // Attach event listener to start date input
+    $(startDateInput).on('input', toggleEndDate);
+
     // look for merchant listing table.
     const isContactUsPage = $('#contact-us-listing-page').length > 0;
     if (isContactUsPage) {
@@ -71,7 +93,7 @@ jQuery(document).ready(function($) {
                     '<td class="column-message">' + inquiry.message + '</td>' +
                     '<td class="column-created-at">' + inquiry.created_at_formatted + '</td>' +
                     '<td class="column-status">' +
-                        '<div class= "' + (inquiry.status === 'pending' ? 'status-contact-us-pending' : 'status-contact-us-complete') + '">' +
+                        '<div class= "' + (inquiry.status === 'pending' ? 'status-contact-us-pending' : 'status-contact-us-completed') + '">' +
                             inquiry.status.charAt(0).toUpperCase() + inquiry.status.slice(1).toLowerCase() +
                         '</div>' +
                     '</td>' +
