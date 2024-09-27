@@ -22,6 +22,9 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
 include_once(DS_CONTACT_US . 'Modules/Admin/ContactUs.php');
 include_once(DS_CONTACT_US . 'Modules/Admin/ViewContactUs.php');
 include_once(DS_CONTACT_US . 'Modules/Admin/SettingContactUs.php');
+include_once DS_CONTACT_US . 'GraphQL/ContactUsGraphQL.php';
+
+use GraphQL\ContactUsGraphQL;
 use Modules\Admin\ContactUs;
 use Modules\Admin\ViewContactUs;
 use Modules\Admin\SettingContactUs;
@@ -39,6 +42,7 @@ class AdminPlugin
         add_action('init', array($this, 'initialize_contact_us'));
         add_action('init', array($this, 'initialize_contact_us_view'));
         add_action('init', array($this, 'initialize_contact_us_setting_page'));
+        add_action( 'init' , array($this, 'initialize_contact_us_graphql') );
         add_action('admin_enqueue_scripts', array($this, 'init_styles'));
     }
 
@@ -99,6 +103,10 @@ class AdminPlugin
         $this->contact_us = new ContactUs();
     }
 
+    public function initialize_contact_us_graphql () {;
+        $contact_us_graphQL = new ContactUsGraphQL();
+        $contact_us_graphQL->init();
+    }
     /**
      * This is for render the page when user navigate to the page at admin panel.
      * */

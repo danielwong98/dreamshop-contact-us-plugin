@@ -12,7 +12,7 @@ class ContactUs
         // register ajax true to make sure this class is init at the right time.
         if ($register_ajax) {
             // init rest api.
-            add_action( 'rest_api_init', array($this, 'register_contact_us_rest_routes') );
+            //add_action( 'rest_api_init', array($this, 'register_contact_us_rest_routes') );
             // expose ajax handler for storing contact-us inquiries.
             add_action('wp_ajax_fetch_all_contact_us_ajax_handler', array($this, 'fetchAllContactUs'));
             add_action('wp_ajax_nopriv_fetch_all_contact_us_ajax_handler', array($this, 'fetchAllContactUs'));
@@ -52,19 +52,19 @@ class ContactUs
         return $html;
     }
 
-    public function register_contact_us_rest_routes() {
-        $namespace = 'dcr/v1';
-        register_rest_route(
-            $namespace,
-            '/contact-us',
-            array(
-                'methods' => 'POST',
-                'callback' => array($this, 'storeContactUsInquiry'),
-                'permission_callback' => function () {
-                    return true; // public link
-                }
-        ));
-    }
+//    public function register_contact_us_rest_routes() {
+//        $namespace = 'dcr/v1';
+//        register_rest_route(
+//            $namespace,
+//            '/contact-us',
+//            array(
+//                'methods' => 'POST',
+//                'callback' => array($this, 'storeContactUsInquiry'),
+//                'permission_callback' => function () {
+//                    return true; // public link
+//                }
+//        ));
+//    }
     /**
      * @throws Exception
      */
@@ -79,7 +79,7 @@ class ContactUs
             wp_send_json_error(array(
                 'message' => 'Validation failed.',
                 'errors' => $hasErrors
-            ));
+            ), 422);
         }
 
         // if no errors, we sanitize all the text fields.
