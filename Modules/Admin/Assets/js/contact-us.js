@@ -29,28 +29,6 @@ jQuery(document).ready(function($) {
         });
     });
 
-    // New date toggle functionality
-    var startDateInput = $('#start_date')[0];
-    var endDateInput = $('#end_date')[0];
-    var endDateLabel = $('#end_date_label')[0];
-
-    function toggleEndDate() {
-        if (startDateInput.value) {
-            $(endDateInput).show();
-            $(endDateLabel).show();
-        } else {
-            $(endDateInput).hide();
-            $(endDateLabel).hide();
-            endDateInput.value = '';
-        }
-    }
-
-    // Initial check on page load
-    toggleEndDate();
-
-    // Attach event listener to start date input
-    $(startDateInput).on('input', toggleEndDate);
-
     // look for merchant listing table.
     const isContactUsPage = $('#contact-us-listing-page').length > 0;
     if (isContactUsPage) {
@@ -103,6 +81,37 @@ jQuery(document).ready(function($) {
                     '</tr>'
                 )
             })
+        }
+    }
+    function isContactUsAdminPage() {
+        return window.location.href.indexOf('page=contact-us') > -1;
+    }
+
+    // Only run the date toggle functionality if we're on the correct page
+    if (isContactUsAdminPage()) {
+        // Check if the required elements exist
+        if ($('#start_date').length && $('#end_date').length && $('#end_date_label').length) {
+            // New date toggle functionality
+            var startDateInput = $('#start_date')[0];
+            var endDateInput = $('#end_date')[0];
+            var endDateLabel = $('#end_date_label')[0];
+
+            function toggleEndDate() {
+                if (startDateInput.value) {
+                    $(endDateInput).show();
+                    $(endDateLabel).show();
+                } else {
+                    $(endDateInput).hide();
+                    $(endDateLabel).hide();
+                    endDateInput.value = '';
+                }
+            }
+
+            // Initial check on page load
+            toggleEndDate();
+
+            // Attach event listener to start date input
+            $(startDateInput).on('input', toggleEndDate);
         }
     }
 });
