@@ -1,0 +1,7 @@
+name: Hello
+  on: [push]
+  jobs:
+    hello:
+      runs-on: [self-hosted, cf-runner]
+      steps:
+        - run: echo "hello from cloudflare" && uname -a && node -v
